@@ -4,7 +4,11 @@
   "description": "node.js rabbitmq examples",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files"
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "rabbit-hello-world-send": "node dist/src/rabbit-hello-world/send.js",
+    "rabbit-hello-world-receive": "node dist/src/rabbit-hello-world/receive.js",
+    "rabbit-work-queues-new-task": "node dist/src/rabbit-work-queues/new_task.js",
+    "rabbit-work-queues-worker": "node dist/src/rabbit-work-queues/worker.js"
   },
   "author": "Alexander Nesterov",
   "license": "ISC",
