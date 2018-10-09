@@ -8,7 +8,15 @@
     "rabbit-hello-world-send": "node dist/src/rabbit-hello-world/send.js",
     "rabbit-hello-world-receive": "node dist/src/rabbit-hello-world/receive.js",
     "rabbit-work-queues-new-task": "node dist/src/rabbit-work-queues/new_task.js",
-    "rabbit-work-queues-worker": "node dist/src/rabbit-work-queues/worker.js"
+    "rabbit-work-queues-worker": "node dist/src/rabbit-work-queues/worker.js",
+    "rabbit-publish-subscribe-emit-log": "node dist/src/rabbit-publish-subscribe/emit_log.js",
+    "rabbit-publish-subscribe-receive-logs": "node dist/src/rabbit-publish-subscribe/receive_logs.js",
+    "rabbit-routing-emit-log-direct": "node dist/src/rabbit-routing/emit_log_direct.js",
+    "rabbit-routing-receive-logs-direct": "node dist/src/rabbit-routing/receive_logs_direct.js",
+    "rabbit-topics-receive-logs-topic": "node dist/src/rabbit-topics/receive_logs_topic.js",
+    "rabbit-topics-emit-log-topic": "node dist/src/rabbit-topics/emit_log_topic.js",
+    "rabbit-rpc-server": "node dist/src/rabbit-rpc/server.js",
+    "rabbit-rpc-client": "node dist/src/rabbit-rpc/client.js 10"
   },
   "author": "Alexander Nesterov",
   "license": "ISC",

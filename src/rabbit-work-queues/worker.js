@@ -1,8 +1,9 @@
 import 'babel-polyfill';
 import dotenv from 'dotenv';
 import amqp from 'amqplib';
+import path from 'path';
 
-dotenv.config({ path: `${__dirname}/../../../.env` });
+dotenv.config({ path: path.join(__dirname, '..', '..', '..', '.env') });
 
 (async () => {
   try {
@@ -11,8 +12,10 @@ dotenv.config({ path: `${__dirname}/../../../.env` });
       username: process.env.RABBIT_USER,
       password: process.env.RABBIT_PASS,
     });
+
     const channel = await connection.createChannel();
     const queue = 'task_queue';
+
     channel.assertQueue(queue, { durable: true });
     channel.prefetch(1);
     console.log(' [*] Waiting for messages in %s. To exit press CTRL+C', queue);

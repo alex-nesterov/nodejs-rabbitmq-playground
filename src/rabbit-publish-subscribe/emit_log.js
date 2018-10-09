@@ -14,13 +14,14 @@ dotenv.config({ path: path.join(__dirname, '..', '..', '..', '.env') });
     });
 
     const channel = await connection.createChannel();
-    const queue = 'hello';
+    const exchange = 'logs';
+    const message = process.argv.slice(2).join(' ') || 'Hello World!';
 
-    channel.assertQueue(queue, { durable: false });
-    console.log(' [*] Waiting for messages in %s. To exit press CTRL+C', queue);
-    channel.consume(queue, (msg) => {
-      console.log(' [x] Received %s', msg.content.toString());
-    }, { noAck: true });
+    channel.assertExchange(exchange, 'fanout', { durable: false });
+    channel.publish(exchange, '', Buffer.from(message));
+    console.log(' [x] Sent %s', message);
+
+    setTimeout(() => { connection.close(); process.exit(0); }, 500);
   } catch (e) {
     console.error(e);
     process.exit(0);
