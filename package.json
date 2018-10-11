@@ -5,16 +5,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-    "rabbit-hello-world-send": "node dist/src/rabbit-hello-world/send.js",
+
     "rabbit-hello-world-receive": "node dist/src/rabbit-hello-world/receive.js",
-    "rabbit-work-queues-new-task": "node dist/src/rabbit-work-queues/new_task.js",
+    "rabbit-hello-world-send": "node dist/src/rabbit-hello-world/send.js",
+
     "rabbit-work-queues-worker": "node dist/src/rabbit-work-queues/worker.js",
-    "rabbit-publish-subscribe-emit-log": "node dist/src/rabbit-publish-subscribe/emit_log.js",
+    "rabbit-work-queues-new-task": "node dist/src/rabbit-work-queues/new_task.js \"A very hard task which takes two seconds..\"",
+
     "rabbit-publish-subscribe-receive-logs": "node dist/src/rabbit-publish-subscribe/receive_logs.js",
-    "rabbit-routing-emit-log-direct": "node dist/src/rabbit-routing/emit_log_direct.js",
-    "rabbit-routing-receive-logs-direct": "node dist/src/rabbit-routing/receive_logs_direct.js",
-    "rabbit-topics-receive-logs-topic": "node dist/src/rabbit-topics/receive_logs_topic.js",
-    "rabbit-topics-emit-log-topic": "node dist/src/rabbit-topics/emit_log_topic.js",
+    "rabbit-publish-subscribe-emit-log": "node dist/src/rabbit-publish-subscribe/emit_log.js \"info: This is the log message\"",
+
+    "rabbit-routing-receive-logs-direct": "node dist/src/rabbit-routing/receive_logs_direct.js info",
+    "rabbit-routing-emit-log-direct": "node dist/src/rabbit-routing/emit_log_direct.js info \"The message\"",
+
+    "rabbit-topics-receive-logs-topic": "node dist/src/rabbit-topics/receive_logs_topic.js \"*.rabbit\"",
+    "rabbit-topics-emit-log-topic": "node dist/src/rabbit-topics/emit_log_topic.js red.rabbit Hello",
+
     "rabbit-rpc-server": "node dist/src/rabbit-rpc/server.js",
     "rabbit-rpc-client": "node dist/src/rabbit-rpc/client.js 10"
   },
