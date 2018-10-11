@@ -25,7 +25,7 @@ function generateUuid() {
     });
 
     const channel = await connection.createChannel();
-    const queue = channel.assertQueue('', { exclusive: true });
+    const queue = await channel.assertQueue('', { exclusive: true });
     const corr = generateUuid();
     const num = parseInt(args[0], 10);
 
